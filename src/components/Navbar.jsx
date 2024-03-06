@@ -16,6 +16,7 @@ const Navbar = () => {
         <div
           className={`w-full flex-grow md:flex text-center md:items-center md:w-auto`}
         >
+          
           <div className="text-sm md:flex-grow">
             <a
               href="/Home"
