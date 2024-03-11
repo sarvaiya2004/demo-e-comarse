@@ -2,6 +2,8 @@ import Laptop from "../image/images/Carousal5.jpg";
 import MensWear3 from "../image/images/Carousal1.jpg";
 import Shoes from "../image/images/MainPageSideDesign.png";
 import { useNavigate } from "react-router-dom";
+import Footer from './Footer';
+
 import Navbar from "../components/Navbar";
 
 const CarousalLayout = () => {
@@ -45,6 +47,8 @@ const CarousalLayout = () => {
       <div>
         <img src={Laptop} alt="Image 3" className="aspect-video h-[550px] w-full object-cover" />
       </div>
+      <Footer/>
+
       </>
   );
 };

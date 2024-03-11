@@ -19,10 +19,6 @@ function App() {
       <Route path='/Home' element={ <Home />} />
       <Route path="/productPage" element={<ProductPage />} />
       <Route path="/Contact" element={<Contact />} />
-
-
-
-
       <Route path='/' element={ <Navbar /> } />
       
   
