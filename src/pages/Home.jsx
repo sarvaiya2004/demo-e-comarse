@@ -3,7 +3,6 @@ import MensWear3 from "../image/images/Carousal1.jpg";
 import Shoes from "../image/images/MainPageSideDesign.png";
 import { useNavigate } from "react-router-dom";
 import Footer from './Footer';
-
 import Navbar from "../components/Navbar";
 
 const CarousalLayout = () => {
@@ -18,11 +17,9 @@ const CarousalLayout = () => {
     autoplay: true,
     autoplaySpeed: 10000,
   };
-
   return (
     <>
-                <Navbar />
-
+ <Navbar />
       <div>
         <div className="bg-blue-300 md:h-[550px] w-full   aspect-video flex flex-col lg:flex-row justify-evenly">
           <div className="flex flex-col w-full lg:w-[30%] pt-10  items-start justify-center">
@@ -34,7 +31,6 @@ const CarousalLayout = () => {
           </div>
         </div>
       </div>
-
       <div>
         <div className="relative">
           <img src={MensWear3} alt="Image 2" className="aspect-video h-[550px] w-full object-cover" />
@@ -48,7 +44,6 @@ const CarousalLayout = () => {
         <img src={Laptop} alt="Image 3" className="aspect-video h-[550px] w-full object-cover" />
       </div>
       <Footer/>
-
       </>
   );
 };

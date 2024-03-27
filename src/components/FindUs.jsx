@@ -6,16 +6,13 @@ import Us4 from "../image/images/Us4.jpg";
 import {ReactComponent as InstagramIcon} from "../image/svg/Insta.svg";
 
 const FindUs = () => {
-  const images = [Us, Us2, Us3, Us3,Us4]; 
+  const images = [Us, Us2, Us3, Us3, Us4]; 
 
   return (
     <div className="flex flex-wrap justify-center items-center mt-10 ">
       <h1 className="text-center text-3xl font-bold">Find Us On Instagram<br/>
       <a href="https://www.instagram.com/" className="text-center text-xl text-blue-500 hover:cursor-pointer ">@prostore</a>
       </h1>
-      
-      
-
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
         {images.map((image, index) => (
           <div key={index} className="relative group">
