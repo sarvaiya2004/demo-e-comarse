@@ -18,24 +18,30 @@ const Footer = () => {
             that packs powerful selling features.
           </p>
           <div className="  mt-4  grid grid-flow-col ">
-            <a href="https://www.paypal.com/in/home"><Paypal className=" fill-white "  /></a>
-            <a href="https://pay.google.com/about/"><Gpay className=" fill-white"/>
-        
-            
-            
-            
-            
+            <a href="https://www.paypal.com/in/home">
+              <Paypal className=" fill-white " />
             </a>
-            <a href="https://www.apple.com/apple-pay/"><Apay  className=" fill-white"/></a>
-            <a href="https://stripe.com/en-in"><Strapie  className=" fill-white"/></a>
+            <a href="https://pay.google.com/about/">
+              <Gpay className=" fill-white" />
+            </a>
+            <a href="https://www.apple.com/apple-pay/">
+              <Apay className=" fill-white" />
+            </a>
+            <a href="https://stripe.com/en-in">
+              <Strapie className=" fill-white" />
+            </a>
           </div>
         </div>
 
         <div className="flex flex-col mb-8 text-center lg:mb-0 md:text-left  ">
           <h2 className="font-bold text-white text-lg">Menu</h2>
           <ul>
-            <li className="text-white"><a href="/">Home</a></li>
-            <li className="text-white"><a href="/about">About Us </a></li>
+            <li className="text-white">
+              <a href="/">Home</a>
+            </li>
+            <li className="text-white">
+              <a href="/about">About Us </a>
+            </li>
             <li className="text-white">Blog</li>
           </ul>
         </div>
@@ -70,9 +76,8 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto mt-8 text-center text-sm text-gray-500 text-white ">
-        &copy; {new Date().getFullYear()} All rights reserved. 
-        <h1>Designed by
-        Devang Prajapati.</h1>
+        &copy; {new Date().getFullYear()} All rights reserved.
+        <h1>Designed by Devang Prajapati.</h1>
       </div>
     </footer>
   );

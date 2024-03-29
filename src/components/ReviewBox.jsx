@@ -51,7 +51,7 @@ const ReviewBox = () => {
 
   return (
     <>
-    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6 my-10" >
+    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6 my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 justify-evenly" >
 
     <textarea
       value={message}
