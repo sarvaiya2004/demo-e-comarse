@@ -71,13 +71,11 @@ const Card = ({ image, categoryName, caption, price, btn }) => {
           className="relative overflow-hidden"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onClick={handlePopupOpen}
-        >
+          onClick={handlePopupOpen} >
           <img
             src={image}
             alt="image"
-            className="aspect-[3/4] md:w-72 w-36 mx-auto transition-transform duration-300 hover:scale-110"
-  />
+            className="aspect-[3/4] md:w-72 w-36 mx-auto transition-transform duration-300 hover:scale-110"/>
           {isHovered && (
             <button className="absolute bottom-0 left-0 w-full py-2 bg-black text-white text-center">
               Quick Preview
@@ -133,16 +131,14 @@ const Card = ({ image, categoryName, caption, price, btn }) => {
 
                 <button
                   className="bg-black text-white px-4 py-2 mt-2 text-xs md:text-base rounded-md"
-                  onClick={addToCart}
-                >
+                  onClick={addToCart}>
                   Add to Cart
                 </button>
               </div>
             </div>
             <button
               className="absolute top-0 right-0 mt-2 mr-2"
-              onClick={handlePopupClose}
-            >
+              onClick={handlePopupClose}>
               <Close className="h-7" />
             </button>
           </div>

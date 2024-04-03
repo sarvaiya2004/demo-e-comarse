@@ -4,6 +4,7 @@ import { ReactComponent as Star } from '../image/svg/star.svg'
 import { ReactComponent as FilledStar } from '../image/svg/fstar.svg'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Button } from "@mui/material";
 
 
 const ReviewBox = () => {
@@ -11,23 +12,6 @@ const ReviewBox = () => {
   const [rating, setRating] = useState(0);
   // const [reviews, setReviews] = useState([]);
   const [showNotification] = useState(false);
-
-
-
-
-  // useEffect(() => {
-  //   fetchReviews();
-  // }, []);
-
-  // const fetchReviews = async () => {
-  //   try {
-  //     const res = await axiosInstance.get("reviews");
-  //     setReviews(res.data);
-  //   } catch (error) {
-  //     console.log("Error fetching reviews:", error);
-  //   }
-  // };
-
   const handlePostReview = async () => {
   //   const localStorageData = JSON.parse(localStorage.getItem("token"));
   // const {  username } = localStorageData.user;
@@ -38,12 +22,7 @@ const ReviewBox = () => {
         // username
       };
       await axiosInstance.post("reviews", reviewData);
-      // showPostReviewNotification();
-      // console.log("before");
-      // setMessage("");
-      // setRating(0);
-      // console.log("after");
-      // fetchReviews(); 
+     
     } catch (error) {
       console.log("Error posting review:", error);
     }
@@ -51,8 +30,11 @@ const ReviewBox = () => {
 
   return (
     <>
-    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6 my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 justify-evenly" >
-
+    
+    <div className="max-w-lg mx-auto bg-gray-100 rounded-lg shadow-lg p-6 my-10" >
+    <div className=" flex items-center justify-between">
+    
+              </div>
     <textarea
       value={message}
       onChange={(e) => setMessage(e.target.value)}
@@ -90,36 +72,7 @@ const ReviewBox = () => {
 
     
         </div>
-    {/* <div className="mt-28">
-      <h2 className="text-2xl font-bold mb-4">Ratings And Reviews</h2>
-      <Slider {...sliderSettings} >
-      {reviews.map((review, index) => (
-        <div
-          key={index}
-          className="bg-gray-100 rounded-lg p-4 mb-4 text-center space-y-4    "
-        >
-            <p className="text-lg font-bold mb-2 pl-5">{review.username}</p>
-         
-          <div className="flex  w-full justify-center ">
-            {[1, 2, 3, 4, 5].map((value) => (
-              <span
-                key={value}
-                className="w-4 h-4 mr-6 pb-10  fill-current text-yellow-500  "
-              >
-                {value <= review.rating ? (
-                <FilledStar/>
-                ) : (
-                  <Star/> 
-                )}
-              </span>
-            ))}
-          </div>
-          <p className="text-lg italic mb-2 ">{review.message}</p>
-        </div>
-      ))}
-      </Slider>
-    </div> */}
-    </>
+        </>
   );
 };
 

@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { useRef } from "react";
-import AboutDesign from "../image/images/AboutCard.jpg";
+import AboutDesign from "../image/images/Aboutcard21.jpg";
 import Footer from "./Footer";
 import FindUs from "../components/FindUs";
 import * as Yup from "yup";
@@ -7,7 +8,7 @@ import Navbar from "../components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
+// eslint-disable-next-line no-unused-vars
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
   email: Yup.string()
@@ -76,19 +77,20 @@ const ContactUs = () => {
                   Name:
                 </label>
                 <input
-                  className="w-full px-3 py-2 border border-gray-300 ring-1 ring-inset ring-[#ff5450] rounded-md focus:outline-none focus:ring-pink-500"
+                  className="w-full  px-3 py-2 border border-gray-300 ring-1 ring-inset ring-[#ff5450] rounded-md focus:outline-none focus:ring-pink-500"
                   type="text"
                   id="name"
                   name="name"
                   required
                 />
+                
               </div>
               <div className="mb-4">
                 <label className="block mb-1" htmlFor="email">
                   Email:
                 </label>
                 <input
-                  className="w-full px-3 py-2 border border-gray-300 ring-1 ring-inset ring-[#ff5450] rounded-md focus:outline-none focus:ring-pink-500"
+                  className="w-full px-3 py-2 border  border-gray-300 ring-1 ring-inset ring-[#ff5450] rounded-md focus:outline-none focus:ring-pink-500"
                   type="email"
                   id="email"
                   name="email"

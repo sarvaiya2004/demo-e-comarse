@@ -11,7 +11,7 @@ import MainPage from "./Pages/MainPage";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home"
 import AboutUs from "./Pages/AboutUs";
-
+import Myorder from "./pages/myOrder";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,9 +20,8 @@ const router = createBrowserRouter(
         <Route index element={<MainPage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/Home" element={<Home />} />
-
-        <Route path="/Contact" element={<Contact />} />
-        
+        <Route path="/myorder" element={<Myorder />} />
+        <Route path="/Contact" element={<Contact />} /> 
       </Route>
 
     

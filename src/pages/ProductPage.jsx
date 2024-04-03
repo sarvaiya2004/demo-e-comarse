@@ -1,13 +1,13 @@
-
-
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import ReviewBox from "../components/ReviewBox";
 import abc from "../image/images/buy-1.jpg";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 import n from "../image/images/buy-2.jpg";
-import d from "../image/images/buy-3.jpg";
+import d from "../image/images/gallery-4.jpg";
 import e from "../image/images/category-1.jpg";
 import f from "../image/images/category-2.jpg";
 import g from "../image/images/category-3.jpg";
@@ -102,8 +102,9 @@ const ProductPage = () => {
   const handleCloseModal = () => {
     setSelectedProduct(null);
   };
-  const [alignment, setAlignment] = React.useState("left");
+  const [, setAlignment] = React.useState("left");
 
+  // eslint-disable-next-line no-unused-vars
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
@@ -118,8 +119,7 @@ const ProductPage = () => {
           </label>
           <select
             id="sortOption"
-            className="p-2 border w-full border-gray-300 rounded"
-          >
+            className="p-2 border w-full border-gray-300 rounded">
             <option value="">None</option>
             <option value="atoz">A to Z</option>
             <option value="hightolow">Price High to Low</option>
@@ -132,8 +132,7 @@ const ProductPage = () => {
           </label>
           <select
             id="priceRange"
-            className="p-2 border w-full border-gray-300 rounded"
-          >
+            className="p-2 border w-full border-gray-300 rounded">
             <option value="">Select Price Range</option>
             <option value="0-50">$0 - $50</option>
             <option value="50-100">$50 - $100</option>
@@ -150,8 +149,7 @@ const ProductPage = () => {
             type="text"
             id="searchQuery"
             className="p-2 border w-full border-gray-300 rounded"
-            placeholder="Search any items.."
-          />
+            placeholder="Search any items.."/>
         </div>
         <div className="mb-4">
           <label htmlFor="categoryOption" className="mr-2">
@@ -159,8 +157,7 @@ const ProductPage = () => {
           </label>
           <select
             id="categoryOption"
-            className="p-2 border w-full border-gray-300 rounded"
-          >
+            className="p-2 border w-full border-gray-300 rounded" >
             <option value="">Select Your Category </option>
             <option value="Men">Men</option>
             <option value="Women">Women</option>
@@ -177,23 +174,20 @@ const ProductPage = () => {
           <div
             key={product.id}
             onClick={() => handleProductClick(product)}
-            className="cursor-pointer"
-          >
+            className="cursor-pointer">
             <img
               src={product.image}
               alt={product.name}
-              className="h-48 w-full object-cover mb-4"
-            />
+              className="h-auto w-full object-contain mb-auto" />
             <h3 className="text-xl font-semibold">{product.name}</h3>
             <p className="text-gray-700">{product.description}</p>
             <p className="text-gray-700 font-semibold mt-1">{product.price}</p>
             <div className="flex items-center mt-1">
-              <button
-                onClick={handleCloseModal}
-                className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2"
-              >
-                Buy Now
-              </button>
+            <button
+  onClick={handleCloseModal}
+  className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2 hover:bg-green-500">
+  Buy Now
+</button>
             </div>
           </div>
         ))}
@@ -201,56 +195,73 @@ const ProductPage = () => {
 
       {/* {/ Modal for showing product details /} */}
       {selectedProduct && (
-        <div className="fixed inset-0 flex items-center h-auto justify-center bg-gray-800 bg-opacity-50">
-          <div className="bg-white p-4 rounded-lg">
-            <img
-              src={selectedProduct.image}
-              alt={selectedProduct.name}
-              className="h-40 w-[450px] object-cover mb-4"
-            />
+  <div className="fixed inset-0 flex items-center h-auto justify-center bg-gray-800 bg-opacity-80 overflow-y-auto">
+    <div className="bg-white p-4 rounded-lg">
+      <img
+        src={selectedProduct.image}
+        alt={selectedProduct.name}
+        className="h-auto w-[450px] object-contain mb-auto"
+      />
 
-            <h2 className="text-xl font-semibold">{selectedProduct.name}</h2>
-            <p className="text-gray-700 font-semibold mt-1">
-              {selectedProduct.price}
+      <h2 className="text-xl font-semibold">{selectedProduct.name}</h2>
+      <p className="text-gray-700 font-semibold mt-1">
+        {selectedProduct.price}
+      </p>
+      {/* radio group button */}
+      <div className="mt-4">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col space-y-3 justify-between">
+            <p className="gap-3 space-x-3">
+              <FormControl>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <p>
+                    SIZE :
+                    <FormControlLabel
+                      value="S"
+                      control={<Radio />}
+                      label="S"
+                    />
+                    <FormControlLabel
+                      value="L"
+                      control={<Radio />}
+                      label="L"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<Radio />}
+                      label="M"
+                    />
+                    <FormControlLabel
+                      value="XL"
+                      control={<Radio />}
+                      label="XL"
+                    />
+                    <FormControlLabel
+                      value="XXL"
+                      control={<Radio />}
+                      label="XXL"
+                    />
+                  </p>
+                </RadioGroup>
+              </FormControl>
             </p>
-            {/* rediogroupbutton */}
-            <div className="mt-4">
-              <div className=" flex items-center justify-between">
-                <p>
-                  SIZE :
-                  <ToggleButtonGroup
-                    value={alignment}
-                    exclusive
-                    onChange={handleAlignment}
-                    aria-label="text alignment"
-                    className=" ml-3" >
-                    <ToggleButton value="left" >
-                      S
-                    </ToggleButton>
-                    <ToggleButton value="center"  className=" text-black">
-                      XL
-                    </ToggleButton>
-                    <ToggleButton value="right" >
-                      L
-                    </ToggleButton>
-                    <ToggleButton value="" >
-                    XS
-                    </ToggleButton>
-                  </ToggleButtonGroup>
-                </p>
-              </div>
-              <ReviewBox />
-              <button
-                onClick={handleCloseModal}
-                className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2"
-              >
-                Close
-              </button>
-            </div>
           </div>
         </div>
-      )}
-    </>
+        <ReviewBox />
+        <button
+          onClick={handleCloseModal}
+          className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}    </>
   );
 };
 

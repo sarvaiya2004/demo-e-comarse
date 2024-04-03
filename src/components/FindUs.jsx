@@ -17,7 +17,6 @@ const FindUs = () => {
         {images.map((image, index) => (
           <div key={index} className="relative group">
             <img src={image} alt="image" className="aspect-square object-cover w-full" />
-
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
               <div className="absolute inset-0 bg-white opacity-70"></div>
               <InstagramIcon className="w-8 h-8 " />

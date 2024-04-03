@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container mx-auto mt-8 text-center text-sm text-gray-500 text-white ">
+      <div className="container mx-auto mt-8 text-center text-sm text-gray-500 ">
         &copy; {new Date().getFullYear()} All rights reserved.
         <h1>Designed by Devang Prajapati.</h1>
       </div>

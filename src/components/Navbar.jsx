@@ -23,6 +23,7 @@ const Navbar = () => {
               onClick={toggleNavbar}
             >
               {isOpen ? (
+                
                 <Close className="h-4 w-auto " />
               ) : (
                 <Hamburger className="h-4 w-auto" />
@@ -62,17 +63,16 @@ const Navbar = () => {
               All Products
             </a>
             <a
-              href="/myorder"
+              href="/myOrder"
               className=" mt-4 px-2 flex justify-between items-center text-sm md:inline-block md:mt-0 text-gray-500 hover:text-black"
             >
               my Orders
             </a>
-          </div>
-          <div className="flex md:ml-auto justify-center py-5 md:py-0">
-            <div className="flex ">
-              {/* <p className="  ">{cart.length}</p> */}
-            </div>
-            <Button color="primary">Logout</Button>
+            <button
+                className="bg-rose-400 hover:bg-green-500 text-white font-bold mr-5 px-4 py-2 rounded mb-4 mt-2" >
+                LOG OUT
+              </button>
+
           </div>
         </div>
       </nav>
