@@ -7,8 +7,9 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home"
 import ProductPage from "./pages/ProductPage";
 import Myorder from './pages/myOrder';
+import ProductDitel from './pages/ProductDetail';
 
-// import Login from './components/Login'
+
 function App() {
   return (<BrowserRouter>
   
@@ -19,6 +20,8 @@ function App() {
       <Route path="/productPage" element={<ProductPage />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path='/' element={ <Navbar /> } />
+      <Route path="/product-detail/:id" element={<ProductDitel />} />
+
     </Routes>
     </BrowserRouter>
     

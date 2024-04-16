@@ -1,4 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
+
+
 import React from "react";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
@@ -157,7 +159,7 @@ const CarousalLayout = () => {
         </div>
       </Slider>
       <h2 className="font-bold text-[18px] pl-4">men's category</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 justify-evenly px-5 pt-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 justify-evenly object-contain px-5 pt-3">
         {/* {/ Product grid /} */}
         {products.map((product) => (
           <div
@@ -168,7 +170,7 @@ const CarousalLayout = () => {
             <img
               src={product.image}
               alt={product.name}
-              className="h-48 w-full object-cover mb-4"
+              className="h-auto w-full object-contain mb-4"
             />
             <h3 className="text-xl font-semibold">{product.name}</h3>
             <p className="text-gray-700">{product.description}</p>
@@ -187,7 +189,7 @@ const CarousalLayout = () => {
         ))}
       </div>
       {selectedProduct && (
-        <div className="fixed inset-0 flex items-center h-auto justify-center bg-gray-800 bg-opacity-100">
+        <div className="fixed inset-0 flex items-center h-auto justify-center overflow-y-auto bg-gray-400 bg-opacity-75">
           <div className="bg-white p-4 rounded-lg">
             <img
               src={selectedProduct.image}

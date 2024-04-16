@@ -1,98 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import ReviewBox from "../components/ReviewBox";
-import abc from "../image/images/buy-1.jpg";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import n from "../image/images/buy-2.jpg";
-import d from "../image/images/gallery-4.jpg";
-import e from "../image/images/category-1.jpg";
-import f from "../image/images/category-2.jpg";
-import g from "../image/images/category-3.jpg";
-import h from "../image/images/product-3.jpg";
-import i from "../image/images/product-4.jpg";
-import j from "../image/images/product-5.jpg";
-import k from "../image/images/product-7.jpg";
-
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import Footer from "./Footer";
+import { Link } from "react-router-dom";
+import { products } from "../Temp-deta/ProductDate";
 
 const ProductPage = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Women's Top",
-      image: abc,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 2,
-      name: "Preety Graceful",
-      image: n,
-      price: "$199.",
-      size: "L",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: d,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: e,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: f,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: g,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: h,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: i,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: j,
-      price: "$229.99",
-      size: "M",
-    },
-    {
-      id: 1,
-      name: "Women's Top",
-      image: k,
-      price: "$229.99",
-      size: "M",
-    },
-
-    // Add more products with reviews and sizes
-  ];
-
+  
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleProductClick = (product) => {
@@ -119,7 +37,8 @@ const ProductPage = () => {
           </label>
           <select
             id="sortOption"
-            className="p-2 border w-full border-gray-300 rounded">
+            className="p-2 border w-full border-gray-300 rounded"
+          >
             <option value="">None</option>
             <option value="atoz">A to Z</option>
             <option value="hightolow">Price High to Low</option>
@@ -132,7 +51,8 @@ const ProductPage = () => {
           </label>
           <select
             id="priceRange"
-            className="p-2 border w-full border-gray-300 rounded">
+            className="p-2 border w-full border-gray-300 rounded"
+          >
             <option value="">Select Price Range</option>
             <option value="0-50">$0 - $50</option>
             <option value="50-100">$50 - $100</option>
@@ -149,7 +69,8 @@ const ProductPage = () => {
             type="text"
             id="searchQuery"
             className="p-2 border w-full border-gray-300 rounded"
-            placeholder="Search any items.."/>
+            placeholder="Search any items.."
+          />
         </div>
         <div className="mb-4">
           <label htmlFor="categoryOption" className="mr-2">
@@ -157,7 +78,8 @@ const ProductPage = () => {
           </label>
           <select
             id="categoryOption"
-            className="p-2 border w-full border-gray-300 rounded" >
+            className="p-2 border w-full border-gray-300 rounded"
+          >
             <option value="">Select Your Category </option>
             <option value="Men">Men</option>
             <option value="Women">Women</option>
@@ -175,93 +97,99 @@ const ProductPage = () => {
             key={product.id}
             onClick={() => handleProductClick(product)}
             className="cursor-pointer">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-auto w-full object-contain mb-auto" />
+
+            <Link to={`/product-detail/${product.id}`}>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="h-auto w-full object-contain mb-auto"/>
+            </Link>
             <h3 className="text-xl font-semibold">{product.name}</h3>
             <p className="text-gray-700">{product.description}</p>
             <p className="text-gray-700 font-semibold mt-1">{product.price}</p>
             <div className="flex items-center mt-1">
-            <button
-  onClick={handleCloseModal}
-  className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2 hover:bg-green-500">
-  Buy Now
-</button>
+              <button
+                onClick={handleCloseModal}
+                className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2 hover:bg-green-500"
+              >
+                Buy Now
+              </button>
             </div>
           </div>
         ))}
       </div>
-
+      
       {/* {/ Modal for showing product details /} */}
       {selectedProduct && (
-  <div className="fixed inset-0 flex items-center h-auto justify-center bg-gray-800 bg-opacity-80 overflow-y-auto">
-    <div className="bg-white p-4 rounded-lg">
-      <img
-        src={selectedProduct.image}
-        alt={selectedProduct.name}
-        className="h-auto w-[450px] object-contain mb-auto"
-      />
-
-      <h2 className="text-xl font-semibold">{selectedProduct.name}</h2>
-      <p className="text-gray-700 font-semibold mt-1">
-        {selectedProduct.price}
-      </p>
-      {/* radio group button */}
-      <div className="mt-4">
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col space-y-3 justify-between">
-            <p className="gap-3 space-x-3">
-              <FormControl>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                >
-                  <p>
-                    SIZE :
-                    <FormControlLabel
-                      value="S"
-                      control={<Radio />}
-                      label="S"
-                    />
-                    <FormControlLabel
-                      value="L"
-                      control={<Radio />}
-                      label="L"
-                    />
-                    <FormControlLabel
-                      value="other"
-                      control={<Radio />}
-                      label="M"
-                    />
-                    <FormControlLabel
-                      value="XL"
-                      control={<Radio />}
-                      label="XL"
-                    />
-                    <FormControlLabel
-                      value="XXL"
-                      control={<Radio />}
-                      label="XXL"
-                    />
-                  </p>
-                </RadioGroup>
-              </FormControl>
+        <div className="fixed inset-0 flex items-center h-auto justify-center bg-gray-800 bg-opacity-80 overflow-y-auto">
+          <div className="bg-white p-4 rounded-lg">
+            <img
+              src={selectedProduct.image}
+              alt={selectedProduct.name}
+              className="h-auto w-[450px] object-contain mb-auto"
+            />
+            <h2 className="text-xl font-semibold">{selectedProduct.name}</h2>
+            <p className="text-gray-700 font-semibold mt-1">
+              {selectedProduct.price}
             </p>
+            {/* radio group button */}
+            <div className="mt-4">
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col space-y-3 justify-between">
+                  <p className="gap-3 space-x-3">
+                    <FormControl>
+                      <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="row-radio-buttons-group"
+                      >
+                        <p>
+                          SIZE :
+                          <FormControlLabel
+                            value="S"
+                            control={<Radio />}
+                            label="S"
+                          />
+                          <FormControlLabel
+                            value="L"
+                            control={<Radio />}
+                            label="L"
+                          />
+                          <FormControlLabel
+                            value="other"
+                            control={<Radio />}
+                            label="M"
+                          />
+                          <FormControlLabel
+                            value="XL"
+                            control={<Radio />}
+                            label="XL"
+                          />
+                          <FormControlLabel
+                            value="XXL"
+                            control={<Radio />}
+                            label="XXL"
+                          />
+                        </p>
+                      </RadioGroup>
+                    </FormControl>
+                  </p>
+                </div>
+              </div>
+              <ReviewBox />
+              <button
+                onClick={handleCloseModal}
+                className="bg-blue-500  hover:bg-green-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
-        <ReviewBox />
-        <button
-          onClick={handleCloseModal}
-          className="bg-blue-500 text-white flex items-center justify-around px-4 py-2 rounded mt-2"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-)}    </>
+      )}
+      <br />
+      <Footer />
+    </>
   );
 };
 
